@@ -14,19 +14,23 @@ function writePassword() {
 
 // Password variable values
 
-character = ["!", "@", "#", "$", "%", "^", "&", "(", ")", "-", "_", "=", "+", "~", "`", ";", ":", ">", "<", "/", "?", "'", "[", "]", "{", "}"]
-number = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-alpha = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
+let character = ["!", "@", "#", "$", "%", "^", "&", "(", ")", "-", "_", "=", "+", "~", "`", ";", ":", ">", "<", "/", "?", "'", "[", "]", "{", "}"]
+let number = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
+let alpha = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
-get.addEventListener("click", function () {
-  newps = generatePassword();
-  document.getElementById("password").placeholder = newps;
-});
 
 // Generate password
-function generatePasword() {
-  enter = parseInt(prompt("How many characters would you like yout password to be? Choose between 8 and 128"))
+function generatePassword() {
+  // get length of password and save to variable
+
+ // enter = parseInt(prompt("How many characters would you like yout password to be? Choose between 8 and 128"))
+// confirm including special characters
+// confirm if including numbers
+//confirm if lowercase characters
+//confirm if uppercase characters
+// alert if they don't pick one
+ return "My-password"
 }
