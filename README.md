@@ -1,5 +1,7 @@
 # _Password Generator_
 
+![_C__Users_kmfox_Bootcamp-Challenge-3_Develop_index html](https://user-images.githubusercontent.com/128554207/232320205-aa902120-a7a6-4bc7-90f3-0c3dd08eef0e.png)
+
 #### By _*Kylie Fox*_
 
 ## Technologies Used
