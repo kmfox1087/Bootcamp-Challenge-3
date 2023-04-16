@@ -4,6 +4,7 @@ var enter;
 var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
+
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
@@ -11,26 +12,36 @@ function writePassword() {
   passwordText.value = password;
 
 }
+// Variables to get password to generate
+
+var keyLength = prompt("Password must be between 8 and 128 characters! Click OK to continue");
 
 // Password variable values
 
 let character = ["!", "@", "#", "$", "%", "^", "&", "(", ")", "-", "_", "=", "+", "~", "`", ";", ":", ">", "<", "/", "?", "'", "[", "]", "{", "}"]
 let number = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
 let alpha = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
+let upperAlpha = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
 
 // Add event listener to generate button
+
 generateBtn.addEventListener("click", writePassword);
 
-
 // Generate password
-function generatePassword() {
-  // get length of password and save to variable
 
- // enter = parseInt(prompt("How many characters would you like yout password to be? Choose between 8 and 128"))
-// confirm including special characters
-// confirm if including numbers
-//confirm if lowercase characters
-//confirm if uppercase characters
-// alert if they don't pick one
- return "My-password"
+function generatePassword() {
+
+  // Get length of password and save to variable
+
+  if (keyLength < 8 || keyLength > 128) {
+    alert("Your password does not meet the critia");
+    var keyLength = prompt("Password must be between 8 and 128 characters in length.");
+  }
+
+// Confirm including special characters
+// Confirm if including numbers
+// Confirm if lowercase characters
+// Confirm if uppercase characters
+// Alert if they don't pick one
+
 }
