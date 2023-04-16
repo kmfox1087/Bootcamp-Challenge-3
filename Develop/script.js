@@ -15,15 +15,14 @@ function writePassword() {
 // Variables to get password to generate
 
 var keyLength = prompt("Password must be between 8 and 128 characters! Click OK to continue.");
-var characterprompt = confirm("Your password should have a symbol!");
-var numberprompt = confirm("Your password should have a number!");
-var alphaprompt = confirm("Your password should have an lowercase letter!");
-var upperAlphaprompt = confirm("Your password should have an uppercase letter!");
-
+var upperAlpha = confirm("Your password should have an uppercase letter! Click OK to continue");
+var lowerAlpha = confirm("Your password should have a lowercase letter! Click OK to continue");
+var characters = confirm("Your password should have a symbol! Click OK to continue");
+var numbers = confirm("Your password should have a number! Click OK to continue");
 
 // Password variable values
 
-let character = ["!", "@", "#", "$", "%", "^", "&", "(", ")", "-", "_", "=", "+", "~", "`", ";", ":", ">", "<", "/", "?", "'", "[", "]", "{", "}"]
+let characters = ["!", "@", "#", "$", "%", "^", "&", "(", ")", "-", "_", "=", "+", "~", "`", ";", ":", ">", "<", "/", "?", "'", "[", "]", "{", "}"]
 let number = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
 let lowerAlpha = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
 let upperAlpha = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
@@ -50,8 +49,20 @@ function generatePassword() {
     return "Your choices do not meet the password critia!";
     };
 
+var characterprompt = confirm("Your password should have a symbol!");
+var numberprompt = confirm("Your password should have a number!");
+var alphaprompt = confirm("Your password should have an lowercase letter!");
+var upperAlphaprompt = confirm("Your password should have an uppercase letter!");
+
+}
+
 // Confirm including special characters
+
+if (character) {multiSelect += character};
+
 // Confirm if including numbers
+
+if (number) {multiSelect += number};
 // Confirm if lowercase characters
 
 if (lowerAlpha) {multiSelect += lowerAlpha};
@@ -60,4 +71,3 @@ if (lowerAlpha) {multiSelect += lowerAlpha};
 
 if (upperAlpha) {multiSelect += upperAlpha};
 
-}
