@@ -14,14 +14,20 @@ function writePassword() {
 }
 // Variables to get password to generate
 
-var keyLength = prompt("Password must be between 8 and 128 characters! Click OK to continue");
+var keyLength = prompt("Password must be between 8 and 128 characters! Click OK to continue.");
+var characterprompt = confirm("Your password should have a symbol!");
+var numberprompt = confirm("Your password should have a number!");
+var alphaprompt = confirm("Your password should have an lowercase letter!");
+var upperAlphaprompt = confirm("Your password should have an uppercase letter!");
+
 
 // Password variable values
 
 let character = ["!", "@", "#", "$", "%", "^", "&", "(", ")", "-", "_", "=", "+", "~", "`", ";", ":", ">", "<", "/", "?", "'", "[", "]", "{", "}"]
 let number = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
-let alpha = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
+let lowerAlpha = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
 let upperAlpha = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
+var multiSelect =[];
 
 // Add event listener to generate button
 
@@ -36,12 +42,22 @@ function generatePassword() {
   if (keyLength < 8 || keyLength > 128) {
     alert("Your password does not meet the critia");
     var keyLength = prompt("Password must be between 8 and 128 characters in length.");
-  }
+  };
+
+  // Alert if they don't pick one
+
+  if (upperAlpha === false && lowerAlpha === false && character === false && number === false) {
+    return "Your choices do not meet the password critia!";
+    };
 
 // Confirm including special characters
 // Confirm if including numbers
 // Confirm if lowercase characters
+
+if (lowerAlpha) {multiSelect += lowerAlpha};
+
 // Confirm if uppercase characters
-// Alert if they don't pick one
+
+if (upperAlpha) {multiSelect += upperAlpha};
 
 }
