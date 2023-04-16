@@ -1,5 +1,3 @@
-var enter;
-
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
@@ -55,7 +53,6 @@ var numberprompt = confirm("Your password should have a number!");
 var alphaprompt = confirm("Your password should have an lowercase letter!");
 var upperAlphaprompt = confirm("Your password should have an uppercase letter!");
 
-}
 
 // Confirm including special characters
 
@@ -72,3 +69,12 @@ if (lowerAlpha) {multiSelect += lowerABC};
 
 if (upperAlpha) {multiSelect += upperABC};
 
+let finalPassword = ""
+for (let i = 0; i < keyLength; i++) {
+  let rng =[Math.floor(Math.random() * multiSelect.length)];
+  // or finalPassword += possibleCharacters[rng];
+  finalPassword = finalPassword + multiSelect[rng];
+  return (finalPassword)
+}
+
+}
