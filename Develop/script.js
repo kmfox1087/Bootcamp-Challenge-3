@@ -1,8 +1,3 @@
-// Assignment Code
-var generateBtn = document.querySelector("#generate");
-
-// Write password to the #password input
-
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
@@ -21,15 +16,11 @@ var multiSelect =[];
 
 // Variables to get password to generate
 
-var keyLength = prompt("Password must be between 8 and 128 characters! Click OK to continue.");
-var upperABC = confirm("Your password should have an uppercase letter! Click OK to continue");
-var lowerABC = confirm("Your password should have a lowercase letter! Click OK to continue");
-var characters = confirm("Your password should have a symbol! Click OK to continue");
-var numbers = confirm("Your password should have a number! Click OK to continue");
-
-// Add event listener to generate button
-
-generateBtn.addEventListener("click", writePassword);
+var keyLength = prompt("Password must be between 8 and 128 characters!");
+var upperABC = confirm("Do you want uppercase letters?");
+var lowerABC = confirm("Do you want lowercase letters?");
+var characters = confirm("Do you want symbols?");
+var numbers = confirm("Do you want your password to have numbers?");
 
 // Generate password
 
@@ -45,36 +36,69 @@ function generatePassword() {
   // Alert if they don't pick one
 
   if (upperAlpha === false && lowerAlpha === false && specialCharacters === false && numberic === false) {
-    return "Your choices do not meet the password critia!";
+    return "You've enetered no values! We can't make a password with no values!";
     };
+  }
+  if (!upperAlpha && !lowerAlpha && !numberic && !specialCharacters) {
+    userSelection = alert("You entered no values, we can't make a password without values!");
+  }
+  else if (upperAlpha && lowerAlpha && numberic && specialCharacters) {
+    userSelection = (specialCharacters, lowerAlpha, upperAlpha);
+  }
+  else if (upperAlpha && lowerAlpha && numberic) {
+    userSelection = (lowerAlpha, upperAlpha);
+  }
+  else if (upperAlpha && lowerAlpha && specialCharacters) {
+    userSelection = (lowerAlpha, upperAlpha);
+  }
+  else if (upperAlpha && numberic && specialCharacters) {
+    userSelection = (specialCharacters, upperAlpha);
+  }
+  else if (lowerAlpha && numberic && specialCharacters) {
+    userSelection = (specialCharacters, lowerAlpha);
+  }
+  else if (upperAlpha && lowerAlpha) {
+    userSelection = (lowerAlpha); 
+  }
+  else if (upperAlpha && numberic) {
+    userSelection = (numberic);
+  }
+  else if (upperAlpha && specialCharacters) {
+    userSelection = (specialCharacters);
+  }
+  else if (numberic && lowerAlpha) {
+    userSelection = (lowerAlpha);
+  }
+  else if (specialCharacters && lowerAlpha) {
+    userSelection = (lowerAlpha);
+  }
+  else if (specialCharacters && numberic) {
+    userSelection = (numbers);
+  }
+  else if (numberic) {
+    userSelection = numbers;
+  }
+  else if (specialCharacters) {
+    userSelection = specialCharacters;
+  }
+  else if (lowerAlpha) {
+    userSelection = lowerAlpha;
+  }
+  else if (upperAlpha) {
+    userSelection = upperAlpha;
+  }
+{
+function writePassword() {
+  var password = generatePassword();
+  var passwordText = document.querySelector("#password");
 
-var characterprompt = confirm("Your password should have a symbol!");
-var numberprompt = confirm("Your password should have a number!");
-var alphaprompt = confirm("Your password should have an lowercase letter!");
-var upperAlphaprompt = confirm("Your password should have an uppercase letter!");
+  passwordText.value = password;
 
-
-// Confirm including special characters
-
-if (specialCharacters) {multiSelect += characters};
-
-// Confirm if including numbers
-
-if (numberic) {multiSelect += numbers};
-// Confirm if lowercase characters
-
-if (lowerAlpha) {multiSelect += lowerABC};
-
-// Confirm if uppercase characters
-
-if (upperAlpha) {multiSelect += upperABC};
-
-let finalPassword = ""
-for (let i = 0; i < keyLength; i++) {
-  let rng =[Math.floor(Math.random() * multiSelect.length)];
-  // or finalPassword += possibleCharacters[rng];
-  finalPassword = finalPassword + multiSelect[rng];
-  return (finalPassword)
 }
 
+var generateBtn = document.querySelector("#generate");
+
 }
+// Add event listener to generate button
+
+generateBtn.addEventListener("click", writePassword);

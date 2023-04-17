@@ -19,7 +19,7 @@ For our 3rd Bootcamp challenge, we had to edit starter code for JavaSript. We ha
 * Go to https://github.com/kmfox1087/Bootcamp-Challenge-3 and copy SSH 
 * Use _git clone_ in your terminal and copy and paste the SSH code to your local computer
 * Use _git status_ to make sure you are in the repo, if not use _cd Bootcamp-Challenge-3_ in your terminal to change into your local repo
-* After clone is complete, type code . into your terminal to edit files as you need
+* After clone is complete, type code . into your terminal to edit files as needed
 
 ## License
 
