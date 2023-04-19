@@ -1,10 +1,4 @@
-function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
 
-  passwordText.value = password;
-
-}
 
 // Password variable values
 
@@ -25,6 +19,7 @@ var numbers = confirm("Do you want your password to have numbers?");
 // Generate password
 
 function generatePassword() {
+  console.log("generate password");
 
   // Get length of password and save to variable
 
@@ -35,60 +30,44 @@ function generatePassword() {
 
   // Alert if they don't pick one
 
-  if (upperAlpha === false && lowerAlpha === false && specialCharacters === false && numberic === false) {
-    return "You've enetered no values! We can't make a password with no values!";
-    };
+  if (upperABC === false && lowerABC === false && characters === false && numbers === false) {
+    alert("You must pick one character type to make a password!");
+  };
+
+  if (upperABC === true) {
+    multiSelect = multiSelect.concat(upperAlpha);
+  };
+
+  if (lowerABC === true) {
+    multiSelect = multiSelect.concat(lowerAlpha);
+  };
+
+  if (characters === true) {
+    multiSelect = multiSelect.concat(specialCharacters);
+  };
+
+  if (numbers === true) {
+    multiSelect = multiSelect.concat(numberic);
+  };
+
+  console.log(multiSelect);
+
+  var result = "";
+
+  for (var i = 0; i < keyLength; i++) {
+    console.log("inside for loop")
+    var randomIndex = Math.floor(Math.random() * multiSelect.length)
+    console.log(randomIndex)
+    result += multiSelect[randomIndex]
   }
-  if (!upperAlpha && !lowerAlpha && !numberic && !specialCharacters) {
-    userSelection = alert("You entered no values, we can't make a password without values!");
-  }
-  else if (upperAlpha && lowerAlpha && numberic && specialCharacters) {
-    userSelection = (specialCharacters, lowerAlpha, upperAlpha);
-  }
-  else if (upperAlpha && lowerAlpha && numberic) {
-    userSelection = (lowerAlpha, upperAlpha);
-  }
-  else if (upperAlpha && lowerAlpha && specialCharacters) {
-    userSelection = (lowerAlpha, upperAlpha);
-  }
-  else if (upperAlpha && numberic && specialCharacters) {
-    userSelection = (specialCharacters, upperAlpha);
-  }
-  else if (lowerAlpha && numberic && specialCharacters) {
-    userSelection = (specialCharacters, lowerAlpha);
-  }
-  else if (upperAlpha && lowerAlpha) {
-    userSelection = (lowerAlpha); 
-  }
-  else if (upperAlpha && numberic) {
-    userSelection = (numberic);
-  }
-  else if (upperAlpha && specialCharacters) {
-    userSelection = (specialCharacters);
-  }
-  else if (numberic && lowerAlpha) {
-    userSelection = (lowerAlpha);
-  }
-  else if (specialCharacters && lowerAlpha) {
-    userSelection = (lowerAlpha);
-  }
-  else if (specialCharacters && numberic) {
-    userSelection = (numbers);
-  }
-  else if (numberic) {
-    userSelection = numbers;
-  }
-  else if (specialCharacters) {
-    userSelection = specialCharacters;
-  }
-  else if (lowerAlpha) {
-    userSelection = lowerAlpha;
-  }
-  else if (upperAlpha) {
-    userSelection = upperAlpha;
-  }
-{
+console.log("result", result);
+
+  return result
+
+}
+
 function writePassword() {
+  console.log("write password");
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
 
@@ -98,7 +77,7 @@ function writePassword() {
 
 var generateBtn = document.querySelector("#generate");
 
-}
+
 // Add event listener to generate button
 
 generateBtn.addEventListener("click", writePassword);
