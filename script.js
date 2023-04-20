@@ -7,7 +7,6 @@ let upperAlpha = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M
 var multiSelect =[];
 var result = "";
 
-
 // Variables to get password to generate
 
 var keyLength = prompt("Password must be between 8 and 128 characters!");
@@ -33,6 +32,8 @@ function generatePassword() {
   if (upperABC === false && lowerABC === false && characters === false && numbers === false) {
     alert("You must pick one character type to make a password!");
   };
+
+// If statements to make password genterate
 
   if (upperABC === true) {
     multiSelect = multiSelect.concat(upperAlpha);
@@ -62,6 +63,8 @@ var finalPassword = populatePassword();
   return finalPassword
 
 }
+
+// For loop, assisted by tutor Scott Everett
 
 const populatePassword = () => {
   result = '';
