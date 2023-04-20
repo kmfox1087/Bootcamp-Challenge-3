@@ -2,7 +2,7 @@
 
 ![_C__Users_kmfox_Bootcamp-Challenge-3_Develop_index html](https://user-images.githubusercontent.com/128554207/232320205-aa902120-a7a6-4bc7-90f3-0c3dd08eef0e.png)
 
-#### By _*Kylie Fox*_
+#### By _*Kylie Fox*_ 
 
 ## Technologies Used
 
@@ -20,6 +20,10 @@ For our 3rd Bootcamp challenge, we had to edit starter code for JavaSript. We ha
 * Use _git clone_ in your terminal and copy and paste the SSH code to your local computer
 * Use _git status_ to make sure you are in the repo, if not use _cd Bootcamp-Challenge-3_ in your terminal to change into your local repo
 * After clone is complete, type code . into your terminal to edit files as needed
+
+## Contributes
+
+* Scott Everett (tutor)
 
 ## License
 
