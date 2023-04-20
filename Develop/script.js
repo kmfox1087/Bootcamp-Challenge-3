@@ -1,5 +1,3 @@
-
-
 // Password variable values
 
 let specialCharacters = ["!", "@", "#", "$", "%", "^", "&", "(", ")", "-", "_", "=", "+", "~", "`", ";", ":", ">", "<", "/", "?", "'", "[", "]", "{", "}"]
@@ -7,6 +5,8 @@ let numberic = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
 let lowerAlpha = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
 let upperAlpha = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
 var multiSelect =[];
+var result = "";
+
 
 // Variables to get password to generate
 
@@ -50,26 +50,38 @@ function generatePassword() {
     multiSelect = multiSelect.concat(numberic);
   };
 
-  console.log(multiSelect);
+  console.log('multiSelect', multiSelect);
 
-  var result = "";
+ 
 
-  for (var i = 0; i < keyLength; i++) {
+var finalPassword = populatePassword();
+  
+
+
+
+  return finalPassword
+
+}
+
+const populatePassword = () => {
+  result = '';
+  for (i = 0; i < keyLength; i++) {
     console.log("inside for loop")
     var randomIndex = Math.floor(Math.random() * multiSelect.length)
     console.log(randomIndex)
     result += multiSelect[randomIndex]
   }
-console.log("result", result);
 
-  return result
-
+  return result;
 }
 
+
 function writePassword() {
+  var passwordText = document.querySelector("#password");
+  passwordText.textContent = '';
   console.log("write password");
   var password = generatePassword();
-  var passwordText = document.querySelector("#password");
+  
 
   passwordText.value = password;
 
