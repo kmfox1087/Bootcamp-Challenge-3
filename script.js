@@ -6,20 +6,18 @@ let lowerAlpha = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m
 let upperAlpha = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
 var multiSelect =[];
 var result = "";
-
-// Variables to get password to generate
-
-var keyLength = prompt("Password must be between 8 and 128 characters!");
-var upperABC = confirm("Do you want uppercase letters?");
-var lowerABC = confirm("Do you want lowercase letters?");
-var characters = confirm("Do you want symbols?");
-var numbers = confirm("Do you want your password to have numbers?");
+var keyLength;
 
 // Generate password
 
-function generatePassword() {
+function getPasswordOptions() {
   console.log("generate password");
-
+  // Variables to get password to generate
+  keyLength = prompt("Password must be between 8 and 128 characters!");
+  var upperABC = confirm("Do you want uppercase letters?");
+  var lowerABC = confirm("Do you want lowercase letters?");
+  var characters = confirm("Do you want symbols?");
+  var numbers = confirm("Do you want your password to have numbers?");
   // Get length of password and save to variable
 
   if (keyLength < 8 || keyLength > 128) {
@@ -35,46 +33,54 @@ function generatePassword() {
 
 // If statements to make password genterate
 
-  if (upperABC === true) {
+
+
+let passwordOptions = {
+  upperABC,
+  lowerABC,
+  numbers,
+  characters,
+
+}
+console.log(passwordOptions);
+  return passwordOptions;
+
+}
+
+function generatePassword() {
+  var options = getPasswordOptions()
+  console.log("options", options);
+  if (options.upperABC === true) {
     multiSelect = multiSelect.concat(upperAlpha);
   };
 
-  if (lowerABC === true) {
+  if (options.lowerABC === true) {
     multiSelect = multiSelect.concat(lowerAlpha);
   };
 
-  if (characters === true) {
+  if (options.characters === true) {
     multiSelect = multiSelect.concat(specialCharacters);
   };
 
-  if (numbers === true) {
+  if (options.numbers === true) {
     multiSelect = multiSelect.concat(numberic);
   };
-
   console.log('multiSelect', multiSelect);
-
- 
-
-var finalPassword = populatePassword();
-  
-
-
-
-  return finalPassword
-
+  password = populatePassword();
+  console.log(password);
 }
 
 // For loop, assisted by tutor Scott Everett
 
 const populatePassword = () => {
-  result = '';
-  for (i = 0; i < keyLength; i++) {
+  result = ""; 
+  for (var i = 0; i < keyLength; i++) {
     console.log("inside for loop")
     var randomIndex = Math.floor(Math.random() * multiSelect.length)
     console.log(randomIndex)
     result += multiSelect[randomIndex]
   }
-
+console.log("result", result);
   return result;
 }
 
@@ -95,4 +101,4 @@ var generateBtn = document.querySelector("#generate");
 
 // Add event listener to generate button
 
-generateBtn.addEventListener("click", writePassword);
+generateBtn.addEventListener("click", generatePassword);
