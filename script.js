@@ -5,7 +5,6 @@ let numberic = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
 let lowerAlpha = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
 let upperAlpha = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
 var multiSelect =[];
-var result = "";
 var keyLength;
 
 // Generate password
@@ -33,9 +32,8 @@ function getPasswordOptions() {
 
 // If statements to make password genterate
 
-
-
 let passwordOptions = {
+  keyLength,
   upperABC,
   lowerABC,
   numbers,
@@ -66,24 +64,20 @@ function generatePassword() {
     multiSelect = multiSelect.concat(numberic);
   };
   console.log('multiSelect', multiSelect);
-  password = populatePassword();
-  console.log(password);
-}
-
-// For loop, assisted by tutor Scott Everett
-
-const populatePassword = () => {
+  
   result = ""; 
-  for (var i = 0; i < keyLength; i++) {
+  console.log(keyLength);
+  for (var i = 0; i < options.keyLength; i++) {
     console.log("inside for loop")
     var randomIndex = Math.floor(Math.random() * multiSelect.length)
     console.log(randomIndex)
     result += multiSelect[randomIndex]
   }
 console.log("result", result);
-  return result;
-}
 
+return result;
+ 
+}
 
 function writePassword() {
   var passwordText = document.querySelector("#password");
@@ -101,4 +95,4 @@ var generateBtn = document.querySelector("#generate");
 
 // Add event listener to generate button
 
-generateBtn.addEventListener("click", generatePassword);
+generateBtn.addEventListener("click", writePassword);
